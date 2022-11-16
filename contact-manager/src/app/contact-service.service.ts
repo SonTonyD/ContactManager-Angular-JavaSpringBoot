@@ -8,7 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ContactServiceService {
 
-  private IP_ADDRESS = "http://localhost:8888";
+  private IP_ADDRESS = "http://localhost:8080";
   constructor(private http: HttpClient) { }
 
   id = 0;
