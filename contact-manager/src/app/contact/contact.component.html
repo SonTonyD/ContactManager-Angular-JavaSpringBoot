@@ -1,7 +1,35 @@
-<p>contact works! coucou</p>
+<h1>List of contacts</h1>
 
 <div >
-    <li *ngFor="let contact of contactList">
-        {{contact.name}}
+    <li *ngFor="let contact of contactList ">
+        <button>{{contact.name}}</button>
     </li>
 </div>
+
+
+<h1>Add a Contact</h1>
+
+<label for="ID">Contact ID:</label>
+<input [(ngModel)]="id" type="number" id="ID">
+<br>
+<label for="start">Start date:</label>
+<input [(ngModel)]="birthday" type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+<br>
+<label for="email">Email:</label>
+<input [(ngModel)]="email" type="text" id="email">
+<br>
+<label for="name">Name:</label>
+<input [(ngModel)]="name" type="text" id="name">
+<br>
+<label for="lastName">Last Name:</label>
+<input [(ngModel)]="lastName" type="text" id="lastName">
+<br>
+<label for="phoneNumber">Phone Number:</label>
+<input [(ngModel)]="phoneNumber" type="text" id="phoneNumber">
+
+<br>
+<button (click)="onSubmit()">Add a contact</button>
+
+
+
+

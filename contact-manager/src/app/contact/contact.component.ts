@@ -17,14 +17,30 @@ export class ContactComponent implements OnInit {
     )
   }
 
-  contactList: Contact[] = [{
-    name : "Jean",
-    lastName : "François",
-  },{
-    name : "Pierre",
-    lastName : "Dupont",
-  }]
+  id = 5
+  birthday = '2001-01-03'
+  email = 'coucou@gmail.com'
+  name = 'Francois'
+  lastName = 'Pierre'
+  phoneNumber = '084456412'
 
+
+
+  contactList: Contact[] = []
+
+  onSubmit() {
+    this._contactService.createContact({
+      id : this.id,
+      birthday : this.birthday,
+      email : this.email,
+      name : this.name,
+      lastName : this.lastName,
+      phoneNumber: this.phoneNumber
+    }).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+  }
 
 
 }

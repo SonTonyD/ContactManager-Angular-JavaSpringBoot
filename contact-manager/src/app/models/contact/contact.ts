@@ -1,5 +1,8 @@
 export class Contact {
-    name!: String
+    id!: Number
+    birthday!: String
+    email!: String
     lastName!: String
-    
+    name!: String
+    phoneNumber!: String
 }

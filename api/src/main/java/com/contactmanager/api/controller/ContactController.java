@@ -28,11 +28,13 @@ public class ContactController {
 		return contactService.getContacts();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/contact")
 	public Contact createContact(@RequestBody Contact contact) {
 		return contactService.saveContact(contact);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/contact/{id}")
 	public Contact getContact(@PathVariable("id") final Long id) {
 		Optional<Contact> contact = contactService.getContact(id);
@@ -43,11 +45,13 @@ public class ContactController {
 		}
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/contact/{id}")
 	public void deleteContact(@PathVariable("id") final Long id) {
 		contactService.deleteContact(id);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/contact/{id}")
 	public Contact updateContact(@PathVariable("id") final Long id, @RequestBody Contact contact) {
 		Optional<Contact> c = contactService.getContact(id);
