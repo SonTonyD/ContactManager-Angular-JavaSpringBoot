@@ -32,5 +32,13 @@ export class ContactServiceService {
   createContact(contact: Contact) {
     return this.http.post(this.IP_ADDRESS + this._createContact, contact ,this.httpOptions);
   }
+
+  getContact(id: String) {
+    return this.http.get(this.IP_ADDRESS + `/contact/${id}`, this.httpOptions);
+  }
+
+  updateContact(id: String) {
+    return this.http.put(this.IP_ADDRESS + `/contact/${id}`, this.httpOptions);
+  }
   
 }

@@ -2,16 +2,14 @@
 
 <div >
     <li *ngFor="let contact of contactList$ | async ">
-        <button>{{contact.name}}</button>
+        <a [routerLink]="['/contact', contact.id]">{{contact.id}} + {{contact.name}}</a>
     </li>
 </div>
 
 
 <h1>Add a Contact</h1>
 
-<label for="ID">Contact ID:</label>
-<input [(ngModel)]="id" type="number" id="ID">
-<br>
+
 <label for="start">Start date:</label>
 <input [(ngModel)]="birthday" type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
 <br>

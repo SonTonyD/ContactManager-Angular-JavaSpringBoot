@@ -6,11 +6,13 @@ import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
+    ContactDetailComponent,
     
   ],
   imports: [
@@ -19,6 +21,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     RouterModule.forRoot([
       {path: 'contact', component: ContactComponent},
+      {path: 'contact/:id', component: ContactDetailComponent},
       {path: '', redirectTo: '/contact', pathMatch: 'full'},
     ]),
   ],

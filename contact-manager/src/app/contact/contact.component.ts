@@ -17,7 +17,6 @@ export class ContactComponent implements OnInit {
   }
   contactList$: Observable<Contact[]> = this._contactService.getContacts(); 
 
-  id = 5
   birthday = '2001-01-03'
   email = 'coucou@gmail.com'
   name = 'Francois'
@@ -29,7 +28,7 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     this._contactService.createContact({
-      id : this.id,
+      id : 0,
       birthday : this.birthday,
       email : this.email,
       name : this.name,
@@ -40,6 +39,10 @@ export class ContactComponent implements OnInit {
       err => console.log(err)
     )
     this.contactList$ = this._contactService.getContacts(); 
+
+    this._contactService.getContacts().subscribe(
+      res => console.log(res)
+    )
   }
 
 
