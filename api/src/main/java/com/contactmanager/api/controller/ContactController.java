@@ -21,20 +21,21 @@ import com.contactmanager.api.service.ContactService;
 public class ContactController {
 	@Autowired
 	private ContactService contactService;
+	private final String APP_IP = "http://localhost:4200";
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = APP_IP)
 	@GetMapping("/contacts")
 	public Iterable<Contact> getContacts() {
 		return contactService.getContacts();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = APP_IP)
 	@PostMapping("/contact")
 	public Contact createContact(@RequestBody Contact contact) {
 		return contactService.saveContact(contact);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = APP_IP)
 	@GetMapping("/contact/{id}")
 	public Contact getContact(@PathVariable("id") final Long id) {
 		Optional<Contact> contact = contactService.getContact(id);
@@ -45,13 +46,13 @@ public class ContactController {
 		}
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = APP_IP)
 	@DeleteMapping("/contact/{id}")
 	public void deleteContact(@PathVariable("id") final Long id) {
 		contactService.deleteContact(id);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = APP_IP)
 	@PutMapping("/contact/{id}")
 	public Contact updateContact(@PathVariable("id") final Long id, @RequestBody Contact contact) {
 		Optional<Contact> c = contactService.getContact(id);

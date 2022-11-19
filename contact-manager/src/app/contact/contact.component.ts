@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../models/contact/contact';
 import { ContactServiceService } from '../contact-service.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -12,10 +13,9 @@ export class ContactComponent implements OnInit {
   constructor(private _contactService: ContactServiceService ) { }
 
   ngOnInit(): void {
-    this._contactService.getContacts().subscribe(
-      (res) => {this.contactList = res; console.log("Received from server: ", res)}
-    )
+    
   }
+  contactList$: Observable<Contact[]> = this._contactService.getContacts(); 
 
   id = 5
   birthday = '2001-01-03'
@@ -24,9 +24,8 @@ export class ContactComponent implements OnInit {
   lastName = 'Pierre'
   phoneNumber = '084456412'
 
+  
 
-
-  contactList: Contact[] = []
 
   onSubmit() {
     this._contactService.createContact({
@@ -40,6 +39,7 @@ export class ContactComponent implements OnInit {
       res => console.log(res),
       err => console.log(err)
     )
+    this.contactList$ = this._contactService.getContacts(); 
   }
 
 

@@ -1,7 +1,7 @@
 <h1>List of contacts</h1>
 
 <div >
-    <li *ngFor="let contact of contactList ">
+    <li *ngFor="let contact of contactList$ | async ">
         <button>{{contact.name}}</button>
     </li>
 </div>
